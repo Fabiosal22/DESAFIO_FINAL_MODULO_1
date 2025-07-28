@@ -1,0 +1,42 @@
+graph TD
+    subgraph "Rede Central / Internet"
+        Internet
+    end
+
+    subgraph "Rede de Infraestrutura (10.10.30.0/24)"
+        GW_Infra(Gateway Infra<br>10.10.30.1) -->|Gerencia Tráfego| Infra_Net_Segment
+        Infra_Net_Segment
+        Infra_Net_Segment --- FTP[FTP Server<br>10.10.30.10]
+        Infra_Net_Segment --- MySQL[MySQL Server<br>10.10.30.11]
+        Infra_Net_Segment --- Samba[Samba Server<br>10.10.30.15]
+        Infra_Net_Segment --- OpenLDAP[OpenLDAP<br>10.10.30.17]
+        Infra_Net_Segment --- Zabbix[Zabbix Server<br>10.10.30.117]
+        Infra_Net_Segment --- Legacy[Legacy Server<br>10.10.30.227]
+        Infra_Net_Segment --- Host1_Infra[Seu Host 1<br>(1c91b12c1330)<br>10.10.30.2]
+    end
+
+    subgraph "Rede de Convidados (10.10.50.0/24)"
+        GW_Guest(Gateway Guest<br>10.10.50.1) -->|Gerencia Tráfego| Guest_Net_Segment
+        Guest_Net_Segment
+        Guest_Net_Segment --- Macbook_Aline[Macbook Aline<br>10.10.50.2]
+        Guest_Net_Segment --- Notebook_Carlos[Notebook Carlos<br>10.10.50.3]
+        Guest_Net_Segment --- Laptop_Luiz[Laptop Luiz<br>10.10.50.4]
+        Guest_Net_Segment --- Laptop_Vastro[Laptop Vastro<br>10.10.50.5]
+        Guest_Net_Segment --- Host1_Guest[Seu Host 1<br>(1c91b12c1330)<br>10.10.50.6]
+    end
+
+    subgraph "Rede Corporativa (10.10.10.0/24)"
+        GW_Corp(Gateway Corp<br>10.10.10.1) -->|Gerencia Tráfego| Corp_Net_Segment
+        Corp_Net_Segment
+        Corp_Net_Segment --- WS1[WS 001<br>10.10.10.10]
+        Corp_Net_Segment --- WS2[WS 002<br>10.10.10.101]
+        Corp_Net_Segment --- WS3[WS 003<br>10.10.10.127]
+        Corp_Net_Segment --- WS4[WS 004<br>10.10.10.222]
+        Corp_Net_Segment --- Host2_Corp[Seu Host 2<br>(85a984bf752c)<br>10.10.10.2]
+    end
+
+    GW_Infra --- Internet
+    GW_Guest --- Internet
+    GW_Corp --- Internet
+
+    Host1_Infra --- Host1_Guest

@@ -1,0 +1,121 @@
+Inventário Final – Ambiente Simulado Kensei.
+________________________________________
+🔹 corp_net – 10.10.10.0/24
+Host 1
+•	IP: 10.10.10.1
+•	Hostname: (não identificado)
+•	SO estimado: (não identificado)
+•	Portas abertas: 111, 55699
+•	Serviços: (provavelmente portmap e serviço interno não identificado)
+•	Notas: Gateway da rede; verificar a exposição da porta 55699
+________________________________________
+🔹 infra_net – 10.10.30.0/24
+Host 1
+•	IP: 10.10.30.10
+•	Hostname: (não identificado)
+•	SO estimado: (não identificado)
+•	Portas abertas: 21
+•	Serviços: FTP
+•	Notas: Verificar se FTP está com login anônimo habilitado
+Host 2
+•	IP: 10.10.30.117
+•	Hostname: (não identificado)
+•	SO estimado: (não identificado)
+•	Portas abertas: 80
+•	Serviços: HTTP
+•	Notas: Página web acessível? Verificar por possíveis falhas como directory listing
+
+
+
+
+
+Host 3
+•	IP: 10.10.30.1
+•	Hostname: (não identificado)
+•	SO estimado: (não identificado)
+•	Portas abertas: 111
+•	Serviços: (provavelmente portmap)
+•	Notas: Gateway da infra_net?
+Host 4
+•	IP: 10.10.30.15
+•	Hostname: (não identificado)
+•	SO estimado: (não identificado)
+•	Portas abertas: 139
+•	Serviços: SMB
+•	Notas: Pode estar rodando compartilhamento de arquivos — verificar segurança do acesso
+Host 5
+•	IP: 10.10.30.17
+•	Hostname: (não identificado)
+•	SO estimado: (não identificado)
+•	Portas abertas: 389
+•	Serviços: LDAP
+•	Notas: Verificar se o serviço está autenticado ou aberto publicamente
+Host 6
+•	IP: 10.10.30.15
+•	Portas abertas adicionais: 445
+•	Serviços: SMB
+•	Notas: Mesmo host que o anterior — 139 + 445 = típico de compartilhamento Windows
+
+
+
+
+
+Host 7
+•	IP: 10.10.30.17
+•	Portas abertas adicionais: 636
+•	Serviços: LDAPS
+•	Notas: Mesmo host que o anterior — conexão segura LDAP, verificar certificados
+Host 8
+•	IP: 10.10.30.11
+•	Portas abertas: 3306
+•	Serviços: MySQL
+•	Notas: Verificar se há autenticação forte e bloqueio de IPs externos
+Host 9
+•	IP: 10.10.30.117
+•	Portas abertas adicionais: 10051, 10052
+•	Serviços: Zabbix agent
+•	Notas: Monitoramento — verificar se aceita conexões externas sem restrição
+Host 10
+•	IP: 10.10.30.11
+•	Portas abertas adicionais: 33060
+•	Serviços: MySQL X Protocol
+•	Notas: Verificar necessidade do serviço estar exposto
+Host 11
+•	IP: 10.10.30.2
+•	Portas abertas: 35056
+•	Serviços: (não identificado)
+•	Notas: Porta incomum — checar manualmente o serviço
+Host 12
+•	IP: 10.10.30.2
+•	Portas abertas adicionais: 47084
+•	Serviços: (não identificado)
+•	Notas: Mesmo host que acima — pode ter vários serviços escutando
+
+Host 13
+•	IP: 10.10.30.1
+•	Portas abertas adicionais: 55699
+•	Serviços: (não identificado)
+•	Notas: Já apareceu em outras redes — atenção à reutilização dessa porta
+________________________________________
+🔹 guest_net – 10.10.50.0/24
+Host 1
+•	IP: 10.10.50.1
+•	Hostname: (não identificado)
+•	SO estimado: (não identificado)
+•	Portas abertas: 111
+•	Serviços: (possivelmente portmap)
+•	Notas: Gateway da rede guest_net
+Host 2
+•	IP: 10.10.50.6
+•	Hostname: (não identificado)
+•	SO estimado: (não identificado)
+•	Portas abertas: 53950, 55699
+•	Serviços: (desconhecido — portas incomuns)
+•	Notas: Porta 53950 pode estar associada a serviço customizado; atenção à 55699 (possivelmente igual à da corp_net)
+
+
+
+
+
+
+
